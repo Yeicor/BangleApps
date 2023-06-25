@@ -1,0 +1,21 @@
+{
+  "private": true,
+  "browserslist": [
+    "Chrome 49"
+  ],
+  "scripts": {
+    "build-app": "parcel build $_PARCEL_BUILD_ARGS --no-source-maps src/app/app.ts",
+    "build-ui": "parcel build $_PARCEL_BUILD_ARGS --no-source-maps --public-url ./ src/loader/index.html",
+    "build": "export VERSION=\"$(cat ChangeLog | tail -n 1 | cut -d ':' -f 1)\" BUILD_DATE=\"$(date -u +\"%Y-%m-%dT%H:%M:%SZ\")\" && yarn build-app & pid1=$! && yarn build-ui && wait $pid1",
+    "build-dev-opt": "NODE_ENV=\"development\" yarn build",
+    "build-dev": "NODE_ENV=\"development\" _PARCEL_BUILD_ARGS=\"--no-optimize\" yarn build && sed -i \"s/module.exports = $.*;/module.exports = /\" dist/app.js"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.0",
+    "@types/node": "^20.3.1",
+    "Bangle.ts": "../../typescript/",
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "parcel": "^2.9.3"
+  },
+  "dependencies": {}
+}

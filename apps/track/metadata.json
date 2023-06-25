@@ -1,0 +1,27 @@
+{
+  "id": "track",
+  "name": "Track",
+  "shortName": "Track",
+  "version": "0.01",
+  "description": "Follow a route or record it using GPS",
+  "icon": "src/icon/icon.png",
+  "type": "app",
+  "tags": "gps,gpx,track,bike,cycling,running,walking,hiking,route,record",
+  "supports": [
+    "BANGLEJS2"
+  ],
+  "allow_emulator": true,
+  "screenshots": [],
+  "readme": "README.md",
+  "storage": [
+    {
+      "name": "track.app.js",
+      "url": "dist/app.js"
+    },
+    {
+      "name": "track.img",
+      "url": "src/icon/icon.js",
+      "evaluate": true
+    }
+  ]
+}
